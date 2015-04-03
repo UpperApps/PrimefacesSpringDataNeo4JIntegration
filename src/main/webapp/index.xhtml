@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <!--A tag abaixo serve para forçar que a biblioteca JQuery utilizada seja a do Primefaces.-->
+        <script name="jquery/jquery.js" library="primefaces"></script>
+        <title>Facelet Title</title>
+    </h:head>
+    <f:view>
+        <h:form prependId="false">
+            <h2>Javabeat Tutorials</h2>
+            <h2>Primefaces + Spring Data + Neo4J</h2>
+            
+            <h:panelGrid columns="2">
+                <h:outputText value="Entre o nome do empregado: "/>
+                <p:inputText value="#{registrationManagedBean.employee.employeeName}" />
+                <h:outputText value="Entre o nome do país do empregado: "/>
+                <p:inputText value="#{registrationManagedBean.employee.address.addressCountry}" />
+                <h:outputText value="Entre o nome da cidade do empregado: "/>
+                <p:inputText value="#{registrationManagedBean.employee.address.addressCity}" />
+            </h:panelGrid>
+
+            <p:commandButton value="Registrar" action="#{registrationManagedBean.register}" ajax="false" />
+            <p:separator />
+            <h:panelGrid columns="1" width="50%">
+                <p:dataTable value="#{registrationManagedBean.employees}" var="employee">
+                    <p:column headerText="Nome do Empregado">
+                        <h:outputText value="#{employee.employeeName}"/>
+                    </p:column>
+                    <p:column headerText="País do Empregado">
+                        <h:outputText value="#{employee.address.addressCountry}"/>
+                    </p:column>
+                    <p:column headerText="Cidade do Empregado">
+                        <h:outputText value="#{employee.address.addressCity}"/>
+                    </p:column>
+                </p:dataTable>
+            </h:panelGrid>
+        </h:form>
+    </f:view>
+</html>
