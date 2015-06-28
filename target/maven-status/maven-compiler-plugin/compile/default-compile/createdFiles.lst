@@ -1,0 +1,5 @@
+net\javabeat\springdata\repo\EmployeeRepository.class
+net\javabeat\primefaces\managedbeans\RegistrationManagedBean.class
+net\javabeat\springdata\beans\RegistrationService.class
+net\javabeat\springdata\data\Address.class
+net\javabeat\springdata\data\Employee.class
